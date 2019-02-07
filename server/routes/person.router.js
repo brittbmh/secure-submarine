@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
-    const queryText = `SELECT * FROM "person" ORDER BY 'id' ASC';`;
+    const queryText = `SELECT person.username FROM "person" ;`;
     pool.query(queryText).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
